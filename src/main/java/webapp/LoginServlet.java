@@ -57,6 +57,7 @@ public class LoginServlet extends HttpServlet {
 		out.println(para2_value);
 		out.println("=");
 		out.println(calculator(para0_value,para1_value,para2_value));
+		out.println("\nRepo is on Git");
 		out.println("</body>");
 		out.println("</html>");
 	}
