@@ -9,9 +9,13 @@
 
 </head>
 <body>
+${errorMessage}
 <form action="/login.do" method="POST">
 Enter your name 
 <input type="text" name="name"/>
+Password
+<input type="password" name="pass"/>
+
 <input type="submit" value="Login"/>
 </form>
 </body>

@@ -8,6 +8,6 @@
 
 </head>
 <body>
-Welcome ${name}you are in !!!
+Welcome ${name} you are in !!! 
 </body>
 </html> 

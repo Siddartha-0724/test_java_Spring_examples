@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet{
 
-	@Override
+	private UserValidationService service = new UserValidationService();
 	protected void doGet(HttpServletRequest request, 
 			HttpServletResponse response) 
 			throws ServletException, IOException
@@ -24,8 +24,19 @@ public class LoginServlet extends HttpServlet{
 			HttpServletResponse response) 
 			throws ServletException, IOException
 			{
-				request.setAttribute("name", request.getParameter("name"));
+				String uname = request.getParameter("name");
+				String upass = request.getParameter("pass");
+				
+				request.setAttribute("name", uname);
+				request.setAttribute("pass", upass);
+				if(service.isUserValid(uname, upass))
 				request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);	
+				else
+				{
+					request.setAttribute("errorMessage", "Invalid Credentials");
+					request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);	
+				}
+				
 			}
 	
 }
