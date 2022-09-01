@@ -9,14 +9,10 @@
 
 </head>
 <body>
-	My first JSP is out with ${name}
-<%@ page import="java.io.*"%>
-<% 
-	
-	int a = 5+10;
-    out.println(a);
-    Date date = new Date();
-%>
-<div>Current date is asdas <%=date %></div>
+<form action="/login.do" method="POST">
+Enter your name 
+<input type="text" name="name"/>
+<input type="submit" value="Login"/>
+</form>
 </body>
 </html> 
