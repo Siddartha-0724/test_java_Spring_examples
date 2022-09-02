@@ -8,38 +8,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.in28minutes.login.LoginService;
+import com.in28minutes.todo.TodoService;
 
 @Controller
-public class LoginController {
+public class TodoController {
 	
 	//Set Login service - Auto Wiring
 	@Autowired
-	LoginService service;
+	TodoService service;
 	
-	@RequestMapping(value="/login", method = RequestMethod.GET)
+	@RequestMapping(value="/list-todos", method = RequestMethod.GET)
 	//@ResponseBody
-	public String showLoginPage()//(@RequestParam String name, @RequestParam String pass,ModelMap model)
+	public String showLoginPage(ModelMap model)//(@RequestParam String name, @RequestParam String pass,ModelMap model)
 	{
 //		model.put("name", name);
 //		model.put("pass", pass);
 //		System.out.println("name ="+name);
 //		System.out.println("pass ="+pass);
-		return "login";
+		model.addAttribute("todos",service.retrieveTodos("in28Minutes"));
+		return "list-todos";
 	}
-	@RequestMapping(value="/login", method = RequestMethod.POST)
-	public String handleLoginRequest(@RequestParam String name, @RequestParam String pass,ModelMap model)
-	{
-		
-		if(service.validateUser(name,pass))
-		{	
-			model.put("name", name);
-			model.put("pass", pass);
-			return "welcome";
-		}
-		
-		model.put("errorMessage", "Enter the Correct credentials");
-		return "login";
-		
-	}
+
 }
  
