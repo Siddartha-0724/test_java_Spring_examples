@@ -10,7 +10,7 @@
 </head>
 <body>
 ${errorMessage}
-<form action="/spring-mvc/login" method="POST">
+<form action="/login" method="POST">
 Enter your name 
 <input type="text" name="name"/>
 Password
