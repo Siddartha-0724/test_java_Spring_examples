@@ -1,14 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ include file="common/header.jspf"%>
+<%@ include file="common/navigation.jspf"%>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Welcome</title>
-
+<title>Todos Application</title>
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
+	rel="stylesheet">
 </head>
+
 <body>
-Welcome ${name} you are in with ${password}!!!<br/>
-Now you can <a href="/list-todos"> manage ToDos </a>
+<div class="container">
+	Welcome ${name}. You are now authenticated.
+	
+</div>
+
+<%@ include file="common/footer.jspf"%>
+
 </body>
-</html> 
+</html>

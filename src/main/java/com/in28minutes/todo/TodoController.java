@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.in28minutes.login.LoginService;
 import com.in28minutes.todo.TodoService;
 
 import java.text.SimpleDateFormat;
@@ -40,9 +39,13 @@ public class TodoController {
 	//@ResponseBody
 	public String showLoginPage(ModelMap model)//(@RequestParam String name, @RequestParam String pass,ModelMap model)
 	{
-		model.addAttribute("todos",service.retrieveTodos("in28Minutes"));
+		model.addAttribute("todos",service.retrieveTodos(retriveLoggedinUserName()));
 		
 		return "list-todos";
+	}
+
+	private String retriveLoggedinUserName() {
+		return "in28Minutes";
 	}
 	
 	@RequestMapping(value="/add-todo", method = RequestMethod.GET)
@@ -55,7 +58,7 @@ public class TodoController {
 	public String addTodo(ModelMap model,@Valid Todo todo, BindingResult results) {
 		if (results.hasFieldErrors())
 			return "todo";
-		service.addTodo("in28Minutes",todo.getDesc(),new Date(),false);
+		service.addTodo(retriveLoggedinUserName(),todo.getDesc(),new Date(),false);
 		model.clear();// remove session variables
 		return "redirect:/list-todos";
 	}
@@ -71,7 +74,7 @@ public class TodoController {
 	public String UpdateTodo(ModelMap model, @Valid Todo todo, BindingResult results) {
 		if (results.hasFieldErrors())
 			return "todo";
-		todo.setUser("in28Minutes");
+		todo.setUser(retriveLoggedinUserName());
 		service.updateTodo(todo);
 		model.clear();// to prevent request parameter "name" to be passed
 		return "redirect:list-todos";
