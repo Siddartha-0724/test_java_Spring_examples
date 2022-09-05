@@ -1,22 +1,21 @@
-<%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Yahoo from JSP !!! Login Page</title>
+<%@ include file="common/header.jspf"%>
+<%@ include file="common/navigation.jspf"%>
+<div class="container">
+	<p>
+		<font color="red">${errorMessage}</font>
+	</p>
+	<form action="/login" method="POST">
+		<fieldset class="form-group">
+			<label>Name</label> <input name="name" type="text"
+				class="form-control" />
+		</fieldset>
+		<fieldset class="form-group">
+			<label>Password</label> <input name="password" type="password"
+				class="form-control" />
+		</fieldset>
+		<button type="submit" class="btn btn-success">Submit</button>
+	</form>
 
-</head>
-<body>
-${errorMessage}
-<form action="/login" method="POST">
-Enter your name 
-<input type="text" name="name"/>
-Password
-<input type="password" name="password"/>
+</div>
 
-<input type="submit" value="Login"/>
-</form>
-</body>
-</html> 
+<%@ include file="common/footer.jspf"%> 

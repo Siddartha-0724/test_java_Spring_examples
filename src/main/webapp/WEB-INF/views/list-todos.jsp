@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+
+<%@ include file="common/header.jspf" %>
+<%@ include file="common/navigation.jspf" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +14,9 @@
 	    		rel="stylesheet">
 </head>
 <body>
-Hi ${name} !!<br/>
-Your Todos are <br/>
 
 	<div class="container">
+	
 		<table class="table table-striped">
 			<caption>Your Todos are</caption>
 
@@ -31,8 +33,11 @@ Your Todos are <br/>
 				<c:forEach items="${todos}" var="todo">
 					<tr>
 						<td>${todo.desc}</td>
-						<td>${todo.targetDate}</td>
+						<td><fmt:formatDate pattern="dd/MM/yyyy"
+									value="${todo.targetDate}" />
+						</td>
 						<%--<td>${todo.Done}</td>--%>
+						<th><a href="update-todo?id=${todo.id}" class="btn btn-success">Update</a><th/>
 						<th><a href="delete-todo?id=${todo.id}" class="btn btn-danger">Delete</a><th/>
 					</tr>
 				</c:forEach>
@@ -40,11 +45,11 @@ Your Todos are <br/>
 		</table>
 	<div class="btn btn-success">
 		<a class="button" href="/add-todo">Add Todo</a>
+		
 	</div>
 	</div>
 	
-<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<%@ include file="common/footer.jspf" %>
 </body>
 </html> 
 

@@ -3,13 +3,23 @@ package com.in28minutes.todo;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.validation.constraints.Size;
+
 public class Todo {
 	private int id;
 	private String user;
+	
+	//Back End validation is NOT Working.
+	@Size(min = 6, message = "Enter atleast 6 Characters.")
 	private String desc;
+	
 	private Date targetDate;
 	private Boolean isDone;
 	
+	public Todo()
+	{
+		
+	}
 	public Todo(int id, String user, String desc, Date date, boolean isDone) {
 		super();
 		this.id = id;

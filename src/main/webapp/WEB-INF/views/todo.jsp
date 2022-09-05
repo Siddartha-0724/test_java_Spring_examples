@@ -1,26 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ include file="common/header.jspf" %>
+<%@ include file="common/navigation.jspf" %>
+
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<title>Your Todo</title>
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
-	    		rel="stylesheet">
-<title>Welcome</title>
+	rel="stylesheet">
 </head>
 <body>
-<div class="container">
-	<h1>Add TODO</h1>
-	<form method="post">
-		<fieldset class="form-group">
-			<label>Description</label>
-			<input name = "desc" type="text" class="form-control" required="required"/>
-		</fieldset>
-		<input class ="btn btn-success"type = "submit" value="Add Todo" />
-	</form>
-</div>
-<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+	<div class="container">
+	
+	<H1>Add Todos</H1>
+		<form:form method="post" commandName="todo">
+			<form:hidden path="id"/>
+			<form:hidden path="user"/>
+			<fieldset class="form-group">
+				<form:label path="desc">Description</form:label>
+				<form:input path="desc" type="text" class="form-control"
+					required="required"/>
+				<form:errors path="desc" cssClass="text-warning" />
+			</fieldset>
+			
+			<fieldset class="form-group">
+				<form:label path="targetDate">targetDate</form:label>
+				<form:input path="targetDate" type="text" class="form-control"
+					required="required"/>
+				<form:errors path="targetDate" cssClass="text-warning" />
+			</fieldset>
+			
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form:form>
+	</div>
+<%@ include file="common/footer.jspf" %>
 </body>
-</html> 
+</html>
