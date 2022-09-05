@@ -14,7 +14,7 @@ ${errorMessage}
 Enter your name 
 <input type="text" name="name"/>
 Password
-<input type="password" name="pass"/>
+<input type="password" name="password"/>
 
 <input type="submit" value="Login"/>
 </form>

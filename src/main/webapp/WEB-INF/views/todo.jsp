@@ -8,7 +8,12 @@
 
 </head>
 <body>
-Welcome ${name} you are in with ${password}!!!<br/>
-Now you can <a href="/list-todos"> manage ToDos </a>
+
+<h1>Add TODO</h1>
+<form method="post">
+	<input name = "desc" type="text"/>
+	<input type = "submit" value="Add Todo"/>
+</form>
+
 </body>
 </html> 
