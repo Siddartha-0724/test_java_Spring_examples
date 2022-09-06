@@ -11,8 +11,7 @@
 
 	<div class="container">
 	
-	<H1>Add Todos</H1>
-		<form:form method="post" commandName="todo">
+		<form:form method="post" modelAttribute="todo">
 			<form:hidden path="id"/>
 			<form:hidden path="user"/>
 			<fieldset class="form-group">
