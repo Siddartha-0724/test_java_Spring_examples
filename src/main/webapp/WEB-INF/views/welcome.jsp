@@ -9,7 +9,7 @@
 
 <body>
 <div class="container">
-	Welcome ${name}. You are now authenticated.
+	<spring:message code="welcome.caption"/> ${name}. You are now authenticated.
 	
 </div>
 

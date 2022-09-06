@@ -18,7 +18,7 @@
 	<div class="container">
 	
 		<table class="table table-striped">
-			<caption>Your Todos are</caption>
+			<caption><spring:message code="todo.caption"/> </caption>
 
 			<thead>
 				<tr>
